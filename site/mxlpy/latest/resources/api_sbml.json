@@ -1,0 +1,5 @@
+{
+  "uri": "mxlpy://api/sbml",
+  "mimeType": "text/markdown",
+  "text": "# `mxlpy.sbml`\n\nSBML support for mxlpy.\n\nAllows importing and exporting metabolic models in SBML format.\n"
+}

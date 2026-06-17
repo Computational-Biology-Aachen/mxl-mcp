@@ -1,0 +1,5 @@
+{
+  "uri": "mxlweb-core://api/backends/wasm",
+  "mimeType": "text/markdown",
+  "text": "# `mxlweb-core` — `backends/wasm`\n\n### `function buildModelWat(equations: { varName: string; expr: Base; }[], varNames: string[], parNames: string[], timeVar?: string, intermediates?: { name: string; expr: Base; }[]) => string`\n\nbuildModelWat — generate a complete WAT module for the ODE RHS.\n\nExported function signature (matches fcn_dispatch in radau5_wrapper.c):\n  void model_fn(int n, double t, double* y, double* dydt, double* pars)\nEmscripten addFunction type string: \"vidiii\"\n\n### `function mathImports() => Record<string, (...args: number[]) => number>`\n\nmathImports — JS imports object for instantiating a model WASM module.\nProvide as the \"math\" namespace in WebAssembly.instantiate imports.\n"
+}

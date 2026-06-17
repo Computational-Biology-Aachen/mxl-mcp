@@ -1,0 +1,5 @@
+{
+  "uri": "mxlpy://api/parameterise",
+  "mimeType": "text/markdown",
+  "text": "# `mxlpy.parameterise`\n\nModule to parameterise models.\n\n## Functions\n\n### `get_km_and_kcat_from_brenda(ec: str, brenda_path: Path) -> tuple[pd.DataFrame, pd.DataFrame]`\n\nObtain michaelis and catalytic constants for given ec number.\n\nYou can obtain the database from https://www.brenda-enzymes.org/download.php\n\nParameters\n----------\nec\n    EC number of the enzyme (e.g. \"4.1.1.39\").\nbrenda_path\n    Path to the BRENDA database file.\n"
+}

@@ -1,0 +1,5 @@
+{
+  "uri": "mxlpy://api/fit.abstract",
+  "mimeType": "text/markdown",
+  "text": "# `mxlpy.fit.abstract`\n\nFitting types.\n\n## Classes\n\n### class `EnsembleFit`\n\nResult of a carousel fit operation.\n\n**Methods**\n\n- `get_best_fit(self) -> Fit` — Get the best fit from the carousel.\n\n### class `Fit`\n\nResult of a fit operation.\n\n### class `FitResidual`\n\nProtocol for fitting function.\n\nThis is different to the minimizer.Residual, because we are wrapping\n`_Settings` with all fit functions.\n\n### class `FitSettings`\n\nSettings for a fit.\n\n### class `GroupFit`\n\nResult of a carousel fit operation.\n\n**Methods**\n\n- `get_losses(self) -> pd.Series` — Get losses of all fits.\n- `get_best_fit(self) -> Fit` — Get the best fit from the carousel.\n\n### class `JointFit`\n\nResult of joint fit operation.\n\n### class `MixedSettings`\n\nSettings for a fit.\n"
+}

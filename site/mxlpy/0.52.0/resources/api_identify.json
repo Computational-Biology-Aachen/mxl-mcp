@@ -1,0 +1,5 @@
+{
+  "uri": "mxlpy://api/identify",
+  "mimeType": "text/markdown",
+  "text": "# `mxlpy.identify`\n\nNumerical parameter identification estimations.\n\n## Functions\n\n### `profile_likelihood(model: Model, data: pd.DataFrame, parameter_name: str, parameter_values: Array, n_random: int = 10, loss_fn: fit.LossFn = fit.rmse) -> pd.Series`\n\nEstimate the profile likelihood of model parameters given data.\n\nParameters\n----------\nmodel\n    The model to be fitted.\ndata\n    The data to fit the model to.\nparameter_name\n    The name of the parameter to profile.\nparameter_values\n    The values of the parameter to profile.\nn_random\n    Number of Monte Carlo samples.\nloss_fn\n    Loss function to use for fitting.\n"
+}

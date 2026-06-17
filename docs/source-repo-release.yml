@@ -1,0 +1,39 @@
+# Copy this into EACH upstream package repo as
+#   .github/workflows/notify-staticmcp.yml
+#
+# It tells the mxl-mcp hub to rebuild whenever this package publishes a
+# GitHub Release. Set `event-type` per repo:
+#
+#   MxlPy        -> mxlpy-release
+#   mxl-schemas  -> schemas-release
+#   mxlweb-core  -> webcore-release
+#
+# Requirements:
+#   - A fine-grained PAT with "Contents: read & write" on the
+#     <owner>/mxl-mcp repo, stored in THIS repo's secrets as
+#     STATIC_MCP_TOKEN (Settings -> Secrets and variables -> Actions).
+#   - Update `repository:` below to <owner>/mxl-mcp.
+
+name: Notify StaticMCP hub
+
+on:
+  release:
+    types: [published]
+  # Optional: also fire on plain tag pushes.
+  # push:
+  #   tags: ["v*", "*.*.*"]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.STATIC_MCP_TOKEN }}
+          repository: Computational-Biology-Aachen/mxl-mcp
+          event-type: mxlpy-release   # <-- change per repo (see header)
+          client-payload: |
+            {
+              "version": "${{ github.event.release.tag_name || github.ref_name }}",
+              "ref": "${{ github.event.release.tag_name || github.ref_name }}"
+            }

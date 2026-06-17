@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mxl StaticMCP hub</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { font: 16px/1.6 system-ui, sans-serif; max-width: 760px; margin: 2rem auto; padding: 0 1rem; }
+  h1 { margin-bottom: .2rem; }
+  .lede { color: #888; margin-top: 0; }
+  .pkg { border: 1px solid #8884; border-radius: 10px; padding: 1rem 1.25rem; margin: 1rem 0; }
+  .ver { font-size: .7em; font-weight: normal; color: #888; }
+  .desc { color: #aaa; }
+  pre { background: #8881; padding: .75rem; border-radius: 8px; overflow-x: auto; }
+  code { font-family: ui-monospace, monospace; }
+  a { color: #4493f8; }
+  footer { color: #888; font-size: .85em; margin-top: 2rem; }
+</style>
+</head>
+<body>
+<h1>mxl StaticMCP hub</h1>
+<p class="lede">Pre-generated <a href="https://staticmcp.com">StaticMCP</a> servers for the mxl packages.
+   Point an MCP client at any <code>/&lt;package&gt;/latest</code> root via
+   <a href="https://staticmcp.com/docs/bridge">staticmcp-bridge</a>.</p>
+
+    <section class="pkg">
+      <h2>mxlpy <span class="ver">latest: 0.52.0</span></h2>
+      <p class="desc">API reference and documentation for mxlpy, a Python package for metabolic modeling and analysis. Read resource mxlpy://index for the list of modules.</p>
+      <p><strong>61</strong> resources ·
+         <a href="https://computational-biology-aachen.github.io/mxl-mcp/mxlpy/latest/mcp.json">manifest</a></p>
+      <p class="versions">All versions: <a href="https://computational-biology-aachen.github.io/mxl-mcp/mxlpy/0.52.0/mcp.json">0.52.0</a></p>
+      <details>
+        <summary>Client config (Claude Desktop / Claude Code)</summary>
+        <pre><code>{
+  &quot;mcpServers&quot;: {
+    &quot;mxlpy&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [
+        &quot;-y&quot;,
+        &quot;staticmcp-bridge&quot;,
+        &quot;https://computational-biology-aachen.github.io/mxl-mcp/mxlpy/latest&quot;
+      ]
+    }
+  }
+}</code></pre>
+      </details>
+    </section>
+    <section class="pkg">
+      <h2>mxlschemas <span class="ver">latest: v1</span></h2>
+      <p class="desc">JSON Schema definitions for mxl models (kinetic and ODE models). Schemas are served verbatim as application/json.</p>
+      <p><strong>3</strong> resources ·
+         <a href="https://computational-biology-aachen.github.io/mxl-mcp/mxlschemas/latest/mcp.json">manifest</a></p>
+      <p class="versions">All versions: <a href="https://computational-biology-aachen.github.io/mxl-mcp/mxlschemas/v1/mcp.json">v1</a></p>
+      <details>
+        <summary>Client config (Claude Desktop / Claude Code)</summary>
+        <pre><code>{
+  &quot;mcpServers&quot;: {
+    &quot;mxlschemas&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [
+        &quot;-y&quot;,
+        &quot;staticmcp-bridge&quot;,
+        &quot;https://computational-biology-aachen.github.io/mxl-mcp/mxlschemas/latest&quot;
+      ]
+    }
+  }
+}</code></pre>
+      </details>
+    </section>
+    <section class="pkg">
+      <h2>mxlweb-core <span class="ver">latest: 1.0.0</span></h2>
+      <p class="desc">API reference for @computational-biology-aachen/mxlweb-core, a TypeScript library for building and simulating metabolic models in the browser. Read resource mxlweb-core://index for the list of entry points.</p>
+      <p><strong>10</strong> resources ·
+         <a href="https://computational-biology-aachen.github.io/mxl-mcp/mxlweb-core/latest/mcp.json">manifest</a></p>
+      <p class="versions">All versions: <a href="https://computational-biology-aachen.github.io/mxl-mcp/mxlweb-core/1.0.0/mcp.json">1.0.0</a></p>
+      <details>
+        <summary>Client config (Claude Desktop / Claude Code)</summary>
+        <pre><code>{
+  &quot;mcpServers&quot;: {
+    &quot;mxlweb-core&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [
+        &quot;-y&quot;,
+        &quot;staticmcp-bridge&quot;,
+        &quot;https://computational-biology-aachen.github.io/mxl-mcp/mxlweb-core/latest&quot;
+      ]
+    }
+  }
+}</code></pre>
+      </details>
+    </section>
+<footer>Rebuilt automatically on each upstream release · base URL <code>https://computational-biology-aachen.github.io/mxl-mcp</code></footer>
+</body>
+</html>

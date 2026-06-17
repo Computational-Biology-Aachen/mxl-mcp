@@ -1,0 +1,9 @@
+[submodule "pkg/mxlpy"]
+	path = pkg/mxlpy
+	url = git@github.com:Computational-Biology-Aachen/MxlPy.git
+[submodule "pkg/mxlschemas"]
+	path = pkg/mxlschemas
+	url = git@github.com:Computational-Biology-Aachen/mxl-schemas.git
+[submodule "pkg/mxlweb-core"]
+	path = pkg/mxlweb-core
+	url = git@github.com:Computational-Biology-Aachen/mxlweb-core.git

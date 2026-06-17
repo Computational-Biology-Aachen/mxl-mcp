@@ -1,0 +1,5 @@
+{
+  "uri": "mxlweb-core://api/backends/js/integrators/implicit/utils",
+  "mimeType": "text/markdown",
+  "text": "# `mxlweb-core` — `backends/js/integrators/implicit/utils`\n\n### `function approxJacobian(model: Model, t: number, y: number[], pars: number[], eps?: number) => number[][]`\n\nJacobian approximation\n\n### `function maxNorm(v: number[]) => number`\n\n### `function scaleVec(v: number[], s: number) => number[]`\n\n### `function solveLinear(A: number[][], b: number[]) => number[]`\n\nSolve Ax = b using naive Gauss elimination\n\n### `function solveStages(model: Model, y: number[], t: number, pars: number[], h: number, A: number[][], c: number[], stages: number, tol: number, maxIter: number) => number[][]`\n\nNewton-Raphson solver for IRK stages\n\n### `function subVec(a: number[], b: number[]) => number[]`\n\nUtility functions\n"
+}

@@ -1,0 +1,5 @@
+{
+  "uri": "mxlpy://api/minimizers.abstract",
+  "mimeType": "text/markdown",
+  "text": "# `mxlpy.minimizers.abstract`\n\nTypes for minimizers.\n\n## Classes\n\n### class `AbstractMinimizer`\n\nAbstract minimizer.\n\n### class `MinimizerProtocol`\n\nProtocol for minimizers.\n\n### class `OptimisationState`\n\nResult of a minimization operation.\n\n### class `Residual`\n\nProtocol for steady state residual functions.\n\nThis is the internal version, which is produced by partial\napplication of `settings` of `ResidualProtocol`\n\n## Functions\n\n### `mock_minimizer(residual_fn: Residual, p0: dict[str, float], bounds: Bounds | None) -> Result[OptimisationState]`\n\nMock minimizer for testing purposes.\n\nParameters\n----------\nresidual_fn\n    Residual function (unused)\np0\n    Initial parameter values\nbounds\n    Parameter bounds (unused)\n\nReturns\n-------\nResult[OptimisationState]\n    Result containing the initial parameters with zero residual\n"
+}

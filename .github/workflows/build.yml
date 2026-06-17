@@ -1,0 +1,93 @@
+name: Build StaticMCP
+
+# Triggered by a release in any upstream package (via repository_dispatch),
+# or manually. Regenerates the affected StaticMCP server(s), commits the
+# result under site/, and publishes to GitHub Pages.
+on:
+  repository_dispatch:
+    types: [mxlpy-release, schemas-release, webcore-release]
+  workflow_dispatch:
+    inputs:
+      package:
+        description: "Package to rebuild"
+        type: choice
+        default: all
+        options: [all, mxlpy, mxlschemas, mxlweb-core]
+      ref:
+        description: "Upstream git ref/tag (ignored when package=all)"
+        default: ""
+
+permissions:
+  contents: write   # commit regenerated site/
+  pages: write      # deploy to Pages
+  id-token: write   # Pages OIDC
+
+concurrency:
+  group: build-staticmcp
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v5
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install generator (TypeScript) deps
+        run: npm --prefix generator ci || npm --prefix generator install
+
+      - name: Resolve build target
+        id: target
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
+            case "${{ github.event.action }}" in
+              mxlpy-release)   PKG=mxlpy ;;
+              schemas-release) PKG=mxlschemas ;;
+              webcore-release) PKG=mxlweb-core ;;
+            esac
+            REF='${{ github.event.client_payload.ref }}'
+            VER='${{ github.event.client_payload.version }}'
+          else
+            PKG='${{ github.event.inputs.package }}'
+            REF='${{ github.event.inputs.ref }}'
+            VER=''
+          fi
+          echo "pkg=$PKG" >> "$GITHUB_OUTPUT"
+          echo "ref=$REF" >> "$GITHUB_OUTPUT"
+          echo "ver=$VER" >> "$GITHUB_OUTPUT"
+
+      - name: Generate StaticMCP files
+        run: bash generator/build.sh "${{ steps.target.outputs.pkg }}" "${{ steps.target.outputs.ref }}" "${{ steps.target.outputs.ver }}"
+
+      - name: Generate landing page
+        run: |
+          OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
+          uv run generator/build_index.py site "https://$OWNER.github.io/${{ github.event.repository.name }}"
+
+      - name: Commit regenerated site
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add site
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "build: ${{ steps.target.outputs.pkg }} ${{ steps.target.outputs.ver }} [skip ci]"
+            git push
+          fi
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deploy
+        uses: actions/deploy-pages@v4

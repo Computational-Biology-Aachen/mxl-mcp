@@ -1,0 +1,73 @@
+{
+  "protocolVersion": "2024-11-05",
+  "serverInfo": {
+    "name": "mxlweb-core",
+    "version": "1.0.0"
+  },
+  "capabilities": {
+    "resources": [
+      {
+        "uri": "mxlweb-core://readme",
+        "name": "mxlweb-core README",
+        "description": "Project overview.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlweb-core://api/index",
+        "name": "mxlweb-core index",
+        "description": "Public API of the index entry point.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlweb-core://api/mathml",
+        "name": "mxlweb-core mathml",
+        "description": "Public API of the mathml entry point.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlweb-core://api/sbml",
+        "name": "mxlweb-core sbml",
+        "description": "Public API of the sbml entry point.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlweb-core://api/pam",
+        "name": "mxlweb-core pam",
+        "description": "Public API of the pam entry point.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlweb-core://api/backends/js",
+        "name": "mxlweb-core backends/js",
+        "description": "Public API of the backends/js entry point.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlweb-core://api/backends/wasm",
+        "name": "mxlweb-core backends/wasm",
+        "description": "Public API of the backends/wasm entry point.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlweb-core://api/backends/wasm/wat-context",
+        "name": "mxlweb-core backends/wasm/wat-context",
+        "description": "Public API of the backends/wasm/wat-context entry point.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlweb-core://api/backends/js/integrators/implicit/utils",
+        "name": "mxlweb-core backends/js/integrators/implicit/utils",
+        "description": "Public API of the backends/js/integrators/implicit/utils entry point.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlweb-core://index",
+        "name": "mxlweb-core API index",
+        "description": "List of all documented mxlweb-core entry points.",
+        "mimeType": "text/markdown"
+      }
+    ],
+    "tools": []
+  },
+  "instructions": "API reference for @computational-biology-aachen/mxlweb-core, a TypeScript library for building and simulating metabolic models in the browser. Read resource mxlweb-core://index for the list of entry points."
+}

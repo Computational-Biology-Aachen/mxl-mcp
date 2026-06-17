@@ -1,0 +1,5 @@
+{
+  "uri": "mxlpy://api/nn",
+  "mimeType": "text/markdown",
+  "text": "# `mxlpy.nn`\n\nCollection of neural network architectures.\n"
+}

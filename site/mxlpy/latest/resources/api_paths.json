@@ -1,0 +1,5 @@
+{
+  "uri": "mxlpy://api/paths",
+  "mimeType": "text/markdown",
+  "text": "# `mxlpy.paths`\n\nShared paths between the mxlpy package.\n\n## Functions\n\n### `default_tmp_dir(tmp_dir: Path | None, remove_old_cache: bool) -> Path`\n\nReturns the default temporary directory path.\n\nIf `tmp_dir` is None, it defaults to the user's home directory under \".cache/mxlpy\".\nOptionally removes old cache if specified.\n\nParameters\n----------\ntmp_dir : Path | None\n    The temporary directory path. If None, defaults to\n    Path.home() / \".cache\" / \"mxlpy\".\nremove_old_cache : bool\n    If True, removes the old cache directory if it exists.\n    Defaults to False.\n\nReturns\n-------\nPath\n    The path to the temporary directory.\n"
+}

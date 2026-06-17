@@ -1,0 +1,5 @@
+{
+  "uri": "mxlpy://api/integrators",
+  "mimeType": "text/markdown",
+  "text": "# `mxlpy.integrators`\n\nIntegrator Package.\n\nThis package provides integrators for solving ordinary differential equations (ODEs).\nIt includes support for both Assimulo and Scipy integrators, with Assimulo being the default if available.\n"
+}

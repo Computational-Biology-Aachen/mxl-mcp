@@ -1,0 +1,5 @@
+{
+  "uri": "mxlpy://api/experimental",
+  "mimeType": "text/markdown",
+  "text": "# `mxlpy.experimental`\n\nExperimental features for mxlpy.\n\nAPIs should be considered unstable and may change without notice.\n"
+}

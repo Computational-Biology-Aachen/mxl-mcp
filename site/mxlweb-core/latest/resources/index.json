@@ -1,0 +1,5 @@
+{
+  "uri": "mxlweb-core://index",
+  "mimeType": "text/markdown",
+  "text": "# mxlweb-core API reference\n\nVersion `1.0.0`.\n\n- `mxlweb-core://api/backends/js`\n- `mxlweb-core://api/backends/js/integrators/implicit/utils`\n- `mxlweb-core://api/backends/wasm`\n- `mxlweb-core://api/backends/wasm/wat-context`\n- `mxlweb-core://api/index`\n- `mxlweb-core://api/mathml`\n- `mxlweb-core://api/pam`\n- `mxlweb-core://api/sbml`\n"
+}

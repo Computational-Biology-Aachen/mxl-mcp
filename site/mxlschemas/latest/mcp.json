@@ -1,0 +1,31 @@
+{
+  "protocolVersion": "2024-11-05",
+  "serverInfo": {
+    "name": "mxlschemas",
+    "version": "v1"
+  },
+  "capabilities": {
+    "resources": [
+      {
+        "uri": "mxlschemas://readme",
+        "name": "mxl-schemas README",
+        "description": "Overview of the mxl JSON schemas.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlschemas://schema/v1/kinetic-model",
+        "name": "kinetic-model schema (v1)",
+        "description": "JSON Schema for kinetic-model (v1).",
+        "mimeType": "application/json"
+      },
+      {
+        "uri": "mxlschemas://schema/v1/ode-model",
+        "name": "ode-model schema (v1)",
+        "description": "JSON Schema for ode-model (v1).",
+        "mimeType": "application/json"
+      }
+    ],
+    "tools": []
+  },
+  "instructions": "JSON Schema definitions for mxl models (kinetic and ODE models). Schemas are served verbatim as application/json."
+}

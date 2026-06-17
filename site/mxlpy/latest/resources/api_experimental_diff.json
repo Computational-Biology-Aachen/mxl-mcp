@@ -1,0 +1,5 @@
+{
+  "uri": "mxlpy://api/experimental.diff",
+  "mimeType": "text/markdown",
+  "text": "# `mxlpy.experimental.diff`\n\nDiffing utilities for comparing models.\n\n## Classes\n\n### class `DerivedDiff`\n\nDifference between two derived variables.\n\n### class `ModelDiff`\n\nDifference between two models.\n\n### class `ReactionDiff`\n\nDifference between two reactions.\n\n## Functions\n\n### `model_diff(m1: Model, m2: Model) -> ModelDiff`\n\nCompute the difference between two models.\n\nParameters\n----------\nm1\n    First model (reference)\nm2\n    Second model to compare against the first\n\nReturns\n-------\nModelDiff\n    Structured diff describing missing and differing components\n\n### `soft_eq(m1: Model, m2: Model) -> bool`\n\nCheck if two models are equal, ignoring the functions.\n\nParameters\n----------\nm1\n    First model to compare\nm2\n    Second model to compare\n\nReturns\n-------\nbool\n    True if the models are structurally equal (ignoring functions)\n"
+}

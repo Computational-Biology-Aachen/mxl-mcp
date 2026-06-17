@@ -1,0 +1,5 @@
+{
+  "uri": "mxlpy://api/symbolic.symbolic_model",
+  "mimeType": "text/markdown",
+  "text": "# `mxlpy.symbolic.symbolic_model`\n\nConversions into symbolic representation.\n\n## Classes\n\n### class `SymbolicModel`\n\nSymbolic model.\n\n**Methods**\n\n- `jacobian(self) -> sympy.Matrix` — Get jacobian of symbolic model.\n\n## Functions\n\n### `to_symbolic_model(model: Model) -> SymbolicModel`\n\nConvert model into symbolic representation.\n\nParameters\n----------\nmodel\n    Model to convert\n\nReturns\n-------\nSymbolicModel\n    Symbolic representation with sympy variables, parameters and equations\n"
+}

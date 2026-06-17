@@ -1,0 +1,379 @@
+{
+  "protocolVersion": "2024-11-05",
+  "serverInfo": {
+    "name": "mxlpy",
+    "version": "0.52.0"
+  },
+  "capabilities": {
+    "resources": [
+      {
+        "uri": "mxlpy://readme",
+        "name": "mxlpy README",
+        "description": "Project overview and quickstart.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://changelog",
+        "name": "mxlpy changelog",
+        "description": "Release history.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/nn",
+        "name": "mxlpy.nn",
+        "description": "Collection of neural network architectures.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/npe",
+        "name": "mxlpy.npe",
+        "description": "Neural Process Estimation (NPE) module.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/npe.abstract",
+        "name": "mxlpy.npe.abstract",
+        "description": "NPE Interface.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/surrogates",
+        "name": "mxlpy.surrogates",
+        "description": "Surrogate Models Module.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/surrogates.abstract",
+        "name": "mxlpy.surrogates.abstract",
+        "description": "Surrogate Interface.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/dsl",
+        "name": "mxlpy.dsl",
+        "description": "String-based DSL for specifying reaction networks.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/compare",
+        "name": "mxlpy.compare",
+        "description": "Docstring.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/fns",
+        "name": "mxlpy.fns",
+        "description": "Module containing functions for reactions and derived quatities.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/simulation",
+        "name": "mxlpy.simulation",
+        "description": "Simulation results.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/scan",
+        "name": "mxlpy.scan",
+        "description": "Parameter Scanning Module.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/sensitivity",
+        "name": "mxlpy.sensitivity",
+        "description": "Global sensitivity analysis for mechanistic models.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/plot",
+        "name": "mxlpy.plot",
+        "description": "Plotting Utilities Module.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/fuzzy",
+        "name": "mxlpy.fuzzy",
+        "description": "Fuzzy / bayesian fitting methods.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/mc",
+        "name": "mxlpy.mc",
+        "description": "Monte Carlo Analysis (MC) Module for Metabolic Models.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/mca",
+        "name": "mxlpy.mca",
+        "description": "Metabolic Control Analysis (MCA) Module.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/identify",
+        "name": "mxlpy.identify",
+        "description": "Numerical parameter identification estimations.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/paths",
+        "name": "mxlpy.paths",
+        "description": "Shared paths between the mxlpy package.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/parameterise",
+        "name": "mxlpy.parameterise",
+        "description": "Module to parameterise models.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/report",
+        "name": "mxlpy.report",
+        "description": "Generate a report comparing two models.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/units",
+        "name": "mxlpy.units",
+        "description": "Unit definitions for MxlPy.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/databases",
+        "name": "mxlpy.databases",
+        "description": "Model database integration for BioModels and JWS Online.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/types",
+        "name": "mxlpy.types",
+        "description": "Types Module.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/serialize",
+        "name": "mxlpy.serialize",
+        "description": "Native JSON serialisation for MxlPy models.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/label_map",
+        "name": "mxlpy.label_map",
+        "description": "Label Mapping Module for Metabolic Models.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/parallel",
+        "name": "mxlpy.parallel",
+        "description": "Parallel Execution Module.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/model",
+        "name": "mxlpy.model",
+        "description": "Model for Metabolic System Representation.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/unit_inference",
+        "name": "mxlpy.unit_inference",
+        "description": "Unit inference for MxlPy models via bidirectional constraint propagation.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/carousel",
+        "name": "mxlpy.carousel",
+        "description": "Reaction carousel.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/linear_label_map",
+        "name": "mxlpy.linear_label_map",
+        "description": "Linear Label Mapping Module for Metabolic Models.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/composition",
+        "name": "mxlpy.composition",
+        "description": "Hierarchical model composition.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/distributions",
+        "name": "mxlpy.distributions",
+        "description": "Probability Distribution Classes for Parameter Sampling.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/simulator",
+        "name": "mxlpy.simulator",
+        "description": "Simulation Module.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/minimizers",
+        "name": "mxlpy.minimizers",
+        "description": "Minimizers.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/minimizers.abstract",
+        "name": "mxlpy.minimizers.abstract",
+        "description": "Types for minimizers.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/meta",
+        "name": "mxlpy.meta",
+        "description": "Metaprogramming facilities.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/meta.codegen_latex",
+        "name": "mxlpy.meta.codegen_latex",
+        "description": "Export model to latex.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/meta.source_tools",
+        "name": "mxlpy.meta.source_tools",
+        "description": "Tools for working with python source files.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/meta.codegen_mxlpy",
+        "name": "mxlpy.meta.codegen_mxlpy",
+        "description": "Module to export models as code without the SymPy roundtrip.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/meta.sympy_tools",
+        "name": "mxlpy.meta.sympy_tools",
+        "description": "Tools for working with sympy expressions.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/integrators",
+        "name": "mxlpy.integrators",
+        "description": "Integrator Package.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/integrators.int_diffrax",
+        "name": "mxlpy.integrators.int_diffrax",
+        "description": "Diffrax integrator for solving ODEs.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/integrators.utils",
+        "name": "mxlpy.integrators.utils",
+        "description": "Utility fns for integrators.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/integrators.int_scipy",
+        "name": "mxlpy.integrators.int_scipy",
+        "description": "Scipy integrator for solving ODEs.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/integrators.int_assimulo",
+        "name": "mxlpy.integrators.int_assimulo",
+        "description": "Assimulo integrator for solving ODEs.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/integrators.abstract",
+        "name": "mxlpy.integrators.abstract",
+        "description": "Integrator Interface.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/jax",
+        "name": "mxlpy.jax",
+        "description": "JAX integration modules for models and training utilities.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/jax.models",
+        "name": "mxlpy.jax.models",
+        "description": "JAX model classes for mechanistic and neural ODE components.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/jax.train",
+        "name": "mxlpy.jax.train",
+        "description": "Training loop utilities for JAX ODE and neural ODE models.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/symbolic",
+        "name": "mxlpy.symbolic",
+        "description": "Symbolic utilities.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/symbolic.symbolic_model",
+        "name": "mxlpy.symbolic.symbolic_model",
+        "description": "Conversions into symbolic representation.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/symbolic.strikepy",
+        "name": "mxlpy.symbolic.strikepy",
+        "description": "Reimplementation of strikepy from.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/experimental",
+        "name": "mxlpy.experimental",
+        "description": "Experimental features for mxlpy.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/experimental.diff",
+        "name": "mxlpy.experimental.diff",
+        "description": "Diffing utilities for comparing models.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/sbml",
+        "name": "mxlpy.sbml",
+        "description": "SBML support for mxlpy.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/fit",
+        "name": "mxlpy.fit",
+        "description": "Fitting routines.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/fit.losses",
+        "name": "mxlpy.fit.losses",
+        "description": "Loss functions.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/fit.residuals",
+        "name": "mxlpy.fit.residuals",
+        "description": "Residual functions used for the different fittting approaches.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://api/fit.abstract",
+        "name": "mxlpy.fit.abstract",
+        "description": "Fitting types.",
+        "mimeType": "text/markdown"
+      },
+      {
+        "uri": "mxlpy://index",
+        "name": "mxlpy API index",
+        "description": "List of all documented mxlpy modules.",
+        "mimeType": "text/markdown"
+      }
+    ],
+    "tools": []
+  },
+  "instructions": "API reference and documentation for mxlpy, a Python package for metabolic modeling and analysis. Read resource mxlpy://index for the list of modules."
+}

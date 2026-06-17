@@ -1,0 +1,5 @@
+{
+  "uri": "mxlpy://api/integrators.int_diffrax",
+  "mimeType": "text/markdown",
+  "text": "# `mxlpy.integrators.int_diffrax`\n\nDiffrax integrator for solving ODEs.\n\n## Classes\n\n### class `Diffrax`\n\nDiffrax integrator for solving ODEs.\n\n**Methods**\n\n- `reset(self) -> None` — Reset the integrator.\n- `integrate(self, t_end: float, steps: int | None = None) -> Result[TimeCourse]` — Integrate the ODE system over a time course.\n- `integrate_time_course(self, time_points: ArrayLike) -> Result[TimeCourse]` — Integrate the ODE system over a time course.\n- `integrate_to_steady_state(self, tolerance: float, rel_norm: bool, oscillation_detector: OscillationDetector | None = detect_oscillations, t_max: float = 1000000000, n_time_points: int = 1000) -> Result[TimeCourse]` — Integrate the ODE system to steady state.\n"
+}

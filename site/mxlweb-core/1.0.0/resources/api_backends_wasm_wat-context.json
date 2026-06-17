@@ -1,0 +1,5 @@
+{
+  "uri": "mxlweb-core://api/backends/wasm/wat-context",
+  "mimeType": "text/markdown",
+  "text": "# `mxlweb-core` — `backends/wasm/wat-context`\n\n### interface `WatContext`\n\n**Members**\n\n- `varIndex: Map<string, number>`\n- `parIndex: Map<string, number>`\n- `timeVar: string` — Name of the time variable in the model (maps to the $t f64 param)\n- `localNames: Set<string>` — Reaction/assignment names available as WAT named locals ($name)\n"
+}

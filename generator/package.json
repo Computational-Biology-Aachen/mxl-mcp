@@ -1,0 +1,12 @@
+{
+  "name": "mxl-static-mcp-generator",
+  "private": true,
+  "type": "module",
+  "description": "TypeScript-side generator for the mxlweb-core StaticMCP server.",
+  "scripts": {
+    "build:webcore": "node build_webcore.mjs"
+  },
+  "dependencies": {
+    "typescript": "^5.6.0"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "uri": "mxlpy://api/meta.codegen_mxlpy",
+  "mimeType": "text/markdown",
+  "text": "# `mxlpy.meta.codegen_mxlpy`\n\nModule to export models as code without the SymPy roundtrip.\n\nSee Also\n--------\nmxlpy.meta.codegen_mxlpy\n\n## Classes\n\n### class `Context`\n\nVarious config.\n\n## Functions\n\n### `generate_mxlpy_code(model: Model, model_fn_name: str = 'create_model', imports: list[str] | None = None, strip_docstring: bool = True, as_assignment: bool = False, docstring: str | None = None) -> str`\n\nGenerate MxlPy source code without a symbolic representation round-trip.\n\nParameters\n----------\nmodel\n    Model\nimports\n    Optional list of import statements to include at the top of the file\n\nReturns\n-------\nstr\n    Python source code that constructs the model using MxlPy API\n"
+}

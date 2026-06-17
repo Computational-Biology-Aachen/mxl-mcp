@@ -1,0 +1,5 @@
+{
+  "uri": "mxlpy://api/jax",
+  "mimeType": "text/markdown",
+  "text": "# `mxlpy.jax`\n\nJAX integration modules for models and training utilities.\n"
+}

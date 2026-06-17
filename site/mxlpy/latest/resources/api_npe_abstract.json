@@ -1,0 +1,5 @@
+{
+  "uri": "mxlpy://api/npe.abstract",
+  "mimeType": "text/markdown",
+  "text": "# `mxlpy.npe.abstract`\n\nNPE Interface.\n\n## Classes\n\n### class `AbstractEstimator`\n\nAbstract class for parameter estimation using neural networks.\n\n**Methods**\n\n- `predict(self, features: pd.Series | pd.DataFrame) -> pd.DataFrame` — Predict the target values for the given features.\n\n### class `EstimatorProtocol`\n\nAbstract class for parameter estimation using neural networks.\n\n**Methods**\n\n- `predict(self, features: pd.Series | pd.DataFrame) -> pd.DataFrame` — Predict the target values for the given features.\n"
+}
