@@ -9,10 +9,10 @@ on:
   workflow_dispatch:
     inputs:
       package:
-        description: "Package to rebuild"
+        description: "Package to rebuild (none = redeploy existing site/ only)"
         type: choice
         default: all
-        options: [all, mxlpy, mxlschemas, mxlweb-core]
+        options: [all, none, mxlpy, mxlschemas, mxlweb-core]
       ref:
         description: "Upstream git ref/tag (ignored when package=all)"
         default: ""
@@ -35,15 +35,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: astral-sh/setup-uv@v5
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-
-      - name: Install generator (TypeScript) deps
-        run: npm --prefix generator ci || npm --prefix generator install
-
       - name: Resolve build target
         id: target
         run: |
@@ -65,15 +56,30 @@ jobs:
           echo "ref=$REF" >> "$GITHUB_OUTPUT"
           echo "ver=$VER" >> "$GITHUB_OUTPUT"
 
+      - if: steps.target.outputs.pkg != 'none'
+        uses: astral-sh/setup-uv@v5
+
+      - if: steps.target.outputs.pkg != 'none'
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install generator (TypeScript) deps
+        if: steps.target.outputs.pkg != 'none'
+        run: npm --prefix generator ci || npm --prefix generator install
+
       - name: Generate StaticMCP files
+        if: steps.target.outputs.pkg != 'none'
         run: bash generator/build.sh "${{ steps.target.outputs.pkg }}" "${{ steps.target.outputs.ref }}" "${{ steps.target.outputs.ver }}"
 
       - name: Generate landing page
+        if: steps.target.outputs.pkg != 'none'
         run: |
           OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
           uv run generator/build_index.py site "https://$OWNER.github.io/${{ github.event.repository.name }}"
 
       - name: Commit regenerated site
+        if: steps.target.outputs.pkg != 'none'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
