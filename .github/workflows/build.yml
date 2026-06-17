@@ -57,7 +57,7 @@ jobs:
           echo "ver=$VER" >> "$GITHUB_OUTPUT"
 
       - if: steps.target.outputs.pkg != 'none'
-        uses: astral-sh/setup-uv@v8
+        uses: astral-sh/setup-uv@v8.2.0
 
       - if: steps.target.outputs.pkg != 'none'
         uses: actions/setup-node@v6
