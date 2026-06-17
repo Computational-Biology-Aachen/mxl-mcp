@@ -3,8 +3,8 @@
 Implements the StaticMCP standard (https://staticmcp.com/docs/standard):
 
     <root>/
-      mcp.json                  # manifest
-      resources/<encoded>.json  # one file per resource (read response)
+      mcp.json                # manifest
+      resources/<path>.json   # one file per resource, path mirrors the URI
 
 We only emit resources (no tools), one StaticMCP root per package version,
 plus a ``latest`` alias that mirrors the newest version.
@@ -12,10 +12,8 @@ plus a ``latest`` alias that mirrors the newest version.
 
 from __future__ import annotations
 
-import hashlib
 import json
 import shutil
-import unicodedata
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -45,24 +43,23 @@ class Resource:
         return {"uri": self.uri, "mimeType": self.mime_type, "text": self.text}
 
 
-def encode_uri(uri: str) -> str:
-    """Encode a resource URI into a static filename stem per the StaticMCP rules.
+def uri_to_relpath(uri: str) -> str:
+    """Map a resource URI to its relative file path (sans ``.json`` suffix).
 
-    Strips everything up to and including ``://``, normalises unicode, lowercases,
-    keeps only ``[a-z0-9_-]`` (other chars -> ``_``), and caps the length at 200
-    chars (long values become ``first-183`` + ``_`` + 16-char hex hash).
+    This must match how ``staticmcp-bridge`` resolves a read request: it strips
+    everything up to and including ``://`` and uses the remainder *verbatim* as a
+    path under ``resources/`` (``resources/<remainder>.json``). Slashes therefore
+    become real subdirectories and dots stay literal -- e.g.
+    ``mxlpy://api/meta.codegen_latex`` -> ``api/meta.codegen_latex``.
+
+    We do not re-encode the remainder: any mangling here would no longer match the
+    path the bridge requests. We only guard against path traversal so a malformed
+    URI cannot escape the ``resources/`` directory.
     """
     path = uri.split("://", 1)[1] if "://" in uri else uri
-    normalised = unicodedata.normalize("NFKD", path)
-    normalised = normalised.encode("ascii", "ignore").decode("ascii")
-    out = []
-    for ch in normalised.lower():
-        out.append(ch if (ch.isalnum() or ch in "-_") else "_")
-    encoded = "".join(out)
-    if len(encoded) > 200:
-        digest = hashlib.sha256(encoded.encode()).hexdigest()[:16]
-        encoded = f"{encoded[:183]}_{digest}"
-    return encoded
+    if path.startswith("/") or ".." in path.split("/"):
+        raise ValueError(f"unsafe resource URI: {uri!r}")
+    return path
 
 
 @dataclass
@@ -101,8 +98,9 @@ class Server:
 
         _write_json(version_dir / "mcp.json", self.manifest())
         for resource in self.resources:
-            stem = encode_uri(resource.uri)
-            _write_json(version_dir / "resources" / f"{stem}.json", resource.read_response())
+            out_path = version_dir / "resources" / f"{uri_to_relpath(resource.uri)}.json"
+            out_path.parent.mkdir(parents=True, exist_ok=True)
+            _write_json(out_path, resource.read_response())
 
         latest_dir = root / self.name / "latest"
         if latest_dir.exists():
