@@ -1,0 +1,88 @@
+# MxlMCP
+
+> MxlMCP is a pre-generated **StaticMCP** server for the mxl package family, hosted on GitHub Pages. MCP clients get API reference + docs for each package over plain HTTP — zero runtime, no server to operate. Maintained by the Computational Biology group at RWTH Aachen.
+
+Part of a tool family with [MxlPy](https://github.com/Computational-Biology-Aachen/mxlpy) (mechanistic learning), [MxlBricks](https://github.com/Computational-Biology-Aachen/mxl-bricks) (composable reaction bricks), and [MxlWeb](https://github.com/Computational-Biology-Aachen/mxl-web) (browser simulation).
+
+## What is StaticMCP?
+
+StaticMCP serves Model Context Protocol (MCP) resources as plain JSON files over HTTP. There is no running server — just pre-rendered files on GitHub Pages. An MCP client connects via [staticmcp-bridge](https://www.npmjs.com/package/staticmcp-bridge), which translates HTTP reads into MCP resource/list and resources/read operations.
+
+Each package exposes a `mcp.json` manifest listing its available resources, plus one `*.json` file per resource containing the pre-rendered read response. The client calls `resources/list` to discover what's available, then `resources/read` to fetch content.
+
+## Available package roots
+
+| Package | Resources | Description |
+|---------|-----------|-------------|
+| `mxlpy` | README, changelog, one Markdown API-reference resource per module | Python mechanistic learning library — API docs extracted with [griffe](https://github.com/mkdocstrings/griffe) |
+| `mxlschemas` | README + each JSON Schema served verbatim | JSON Schema definitions for the mxl data model |
+| `mxlweb-core` | README, one Markdown API-reference resource per public entry point | TypeScript core of MxlWeb — API docs extracted via TypeScript compiler API |
+
+Every release is kept under a version-prefixed path (`/<package>/<version>/`), and `latest/` always mirrors the newest version.
+
+## MCP client configuration
+
+Point staticmcp-bridge at any `/<package>/latest` root:
+
+```json
+{
+  "mcpServers": {
+    "mxlpy": {
+      "command": "npx",
+      "args": ["-y", "staticmcp-bridge", "https://computational-biology-aachen.github.io/mxl-mcp/mxlpy/latest"]
+    },
+    "mxlschemas": {
+      "command": "npx",
+      "args": ["-y", "staticmcp-bridge", "https://computational-biology-aachen.github.io/mxl-mcp/mxlschemas/latest"]
+    },
+    "mxlweb-core": {
+      "command": "npx",
+      "args": ["-y", "staticmcp-bridge", "https://computational-biology-aachen.github.io/mxl-mcp/mxlweb-core/latest"]
+    }
+  }
+}
+```
+
+## Update flow
+
+Each upstream release triggers a rebuild:
+
+1. Upstream repo (e.g. mxlpy) publishes a release or tags a version
+2. A `repository_dispatch` event is sent to mxl-mcp (via `docs/source-repo-release.yml` added to each upstream repo)
+3. The `build.yml` workflow runs `generator/build.sh` for the affected package at the new tag
+4. The generated site is deployed to GitHub Pages
+
+## Layout
+
+```
+site/                              # the published GitHub Pages site
+├── index.html                    # human landing page (generated)
+├── <package>/
+│   ├── <version>/
+│   │   ├── mcp.json              # StaticMCP manifest (resources only, no tools)
+│   │   └── resources/*.json      # one pre-rendered read response per resource
+│   └── latest/                   # copy of the newest version
+generator/                         # build tooling
+.github/workflows/build.yml        # rebuild + deploy on upstream release
+docs/source-repo-release.yml       # snippet to add to each upstream repo
+```
+
+## Building locally
+
+```bash
+generator/build.sh all              # build all packages
+generator/build.sh mxlpy v0.52.0    # build one package at a specific tag
+uv run generator/build_index.py site "https://computational-biology-aachen.github.io/mxl-mcp"
+```
+
+## Tool family
+
+MxlMCP serves documentation for the mxl tool family. Each tool has its own focus area:
+
+- [MxlPy](https://github.com/Computational-Biology-Aachen/mxlpy) — Python library for mechanistic learning (ODEs + ML). Core of the family: model building, simulation, fitting, MCA, sensitivity analysis, surrogates.
+- [MxlBricks](https://github.com/Computational-Biology-Aachen/mxl-bricks) — Composable reaction building blocks on top of MxlPy. Pre-defined reaction types, transport, enzyme kinetics.
+- [MxlModels](https://github.com/Computational-Biology-Aachen/mxl-models) — Flat single-file versions of MxlBricks models, generated via codegen from MxlBricks.
+- [MxlWeb](https://github.com/Computational-Biology-Aachen/mxl-web) — Browser-based ODE solver (SvelteKit + WebWorkers). Deliberately independent implementation in TypeScript/Rust (WASM), sharing design philosophy but not code with MxlPy.
+- [Mxl-Schemas](https://github.com/Computational-Biology-Aachen/mxl-schemas) — JSON Schema definitions for the mxl data model, shared between Python and TypeScript ecosystems.
+- [PySBML](https://github.com/Computational-Biology-Aachen/pysbml) — SBML import/export bridge used by MxlPy. Also serves as a reference spec for MxlWeb's SBML layer.
+- [Parameteriser](https://github.com/Computational-Biology-Aachen/parameteriser) — Kinetic parameter lookup from BRENDA DB.
