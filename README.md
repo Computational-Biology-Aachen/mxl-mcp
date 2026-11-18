@@ -78,7 +78,7 @@ Generators run individually too (against an already-checked-out source tree):
 
 ```bash
 uv run generator/build_mxlpy.py   pkg/mxlpy/src        0.52.0  site
-uv run generator/build_schemas.py pkg/mxlschemas       v1      site
+uv run generator/build_schemas.py pkg/mxlschemas       v0      site
 npm  --prefix generator install
 node generator/build_webcore.mjs  pkg/mxlweb-core      1.0.0   site
 ```
